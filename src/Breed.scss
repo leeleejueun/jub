@@ -1,0 +1,59 @@
+@import url('https://fonts.googleapis.com/css2?family=Inria+Serif&family=Playfair+Display&display=swap');
+
+header{
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+    position: fixed;
+    top: 2%;
+    h1{
+        font-family: 'Inria Serif', serif;
+        font-family: 'Playfair Display', serif;
+    }
+    .side{
+        display: flex;
+        align-items: center;
+        a{
+            width: 30px;
+            margin-right: 20px;
+            img{
+                width: 100%;
+            }
+        }
+        .face{
+            width: 30px;
+            height: 30px;
+            border-radius: 50%;
+            margin-right: 20px;
+            overflow: hidden;
+            img{
+                width: 100%;
+            }
+        }
+    }
+}
+main{
+    width: 80%;
+    height: 80%;
+    margin: 8% auto 0;
+    border-radius: 25px;
+    background-color: #D4B896;
+    display: flex;
+    flex-wrap: wrap;
+    figure{
+        width: 30%;
+        position: relative;
+        text-align: center;
+        img{
+            width: 50%;
+        }
+        figcaption{
+            position: absolute;
+            top: 50%;
+            left: 45%;
+            transform: translate(-50%, -50%);
+            color: #1A1C2D;
+            font-size: 0.9rem;
+        }
+    }
+}

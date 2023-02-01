@@ -1,11 +1,14 @@
 @import url('https://fonts.googleapis.com/css2?family=Inria+Serif&display=swap');
+* {
+    padding: 0;
+    margin: 0;
 
+}
 .App{
     width: 100vw;
     height: 100vh;
     background-color: #B0947A;
     position: relative;
-    z-index: -999;
     .back{
         width: 90%;
         height: 90%;
@@ -15,12 +18,10 @@
         left: 50%;
         transform: translate(-50% ,-50%);
         background-color: #1A1C2D;
-        z-index: -998;
         .line{
             width: 100%;
             position: absolute;
             bottom: 20%;
-            z-index: -997;
             img{
                 width: 100%;
             }
@@ -33,6 +34,7 @@
             justify-content: space-between;
             padding: 25px 25px 0;
             box-sizing: border-box;
+            z-index: 1000;
             .logo{
                 width: 130px;
                 img{
@@ -50,6 +52,7 @@
                         a{
                             color: #fff;
                             font-weight: 300;
+                            font-size: 25px;
                             text-decoration: none;
                             &::before{
                                 content: "";
@@ -96,13 +99,13 @@
             position: relative;
             .title{
                 position: absolute;
-                top: 7%;
-                right: 9%;
+                top: 18%;
+                right: 18%;
                 p{
                 font-family: 'Inria Serif', serif;
                 font-weight: bold;
                 color: #fff;
-                font-size: 5.8rem;
+                font-size: 5rem;
                 }
                 div{
                     position: absolute;
@@ -110,15 +113,15 @@
                     right: 50%;
                     background-color: #29303E;
                     border-radius: 50%;
-                    width: 60px;
-                    height: 60px;
+                    width: 40px;
+                    height: 40px;
                     display: flex;
                     justify-content: center;
                     align-items: center;
                     img{
                         filter: invert(100);
-                        width: 40px;
-                        height: 40px;
+                        width: 20px;
+                        height: 20px;
                     }
                 }
             }
@@ -127,11 +130,17 @@
                 top: 50%;
                 left: 5%;
                 transform: translateY(-50%);
+                img{
+                    width: 80%;
+                }
             }
             .smallI{
                 position: absolute;
-                top: 40%;
+                top: 45%;
                 right: 8%;
+                img{
+                    width: 80%;
+                }
             }
             .lan{
                 position: absolute;
@@ -196,6 +205,8 @@
                         bottom: 0%;
                         left: 50%;
                         transform: translateX(-50%);
+                        font-weight: 500;
+
                     }
                 }
             }
@@ -231,6 +242,7 @@
                         bottom: 0%;
                         left: 50%;
                         transform: translateX(-50%);
+                        font-weight: 500;
                     }
                 }
             }
