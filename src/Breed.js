@@ -36,14 +36,6 @@ const Breed = () => {
         </div>
       </header>
       <main>
-        {/* {newArr.slice(offset, offset + limit).fliter(f=>f.substring( 0, 3)==="[개]").map((id) => (
-          <article key={id}>
-            <img src='./img/do'/>
-            <h3>
-              {id}
-            </h3>
-          </article>
-        ))} */}
         {
           newArr.filter(text => text.slice(0,3) === '[개]').slice(offset, offset + limit).map((obj) => {
             return <figure>
@@ -52,7 +44,11 @@ const Breed = () => {
           </figure>
           })
         }
-        <Pagination />
+        <Pagination
+        total = {newArr.length}
+        limit = {limit}
+        page={page}
+        setPage={setPage} />
       </main>
     </>
   )
