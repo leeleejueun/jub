@@ -5,6 +5,7 @@ import { MyContext } from './Context';
 import Breed from './Breed';
 import Sido from './Sido';
 import Main from './Main';
+import Kind from './Kind';
 
 function App() {
   const [city,setCity] = useState();
@@ -45,18 +46,29 @@ function App() {
     .then(data=>{
       setData(data.response.body.items.item)    
     })
+
+    //유기동물2
+    fetch(`http://apis.data.go.kr/1543061/abandonmentPublicSrvc/abandonmentPublic?bgnde=20211201&endde=20211231&pageNo=2&numOfRows=1000&serviceKey=IhwtVFipeu6nZyGrdxBURBuhH1LUYVdDuftZhldVrd6zyQhAVmaeyEpgqtEPlA865XSikOQ8RTlNrsMPGd2ABg%3D%3D&_type=json`)
+    .then(res=>res.json())
+    .then(data2=>{
+      setData(data2.response.body.items.item)    
+    })
+
+    //유기동물3
+    fetch(`http://apis.data.go.kr/1543061/abandonmentPublicSrvc/abandonmentPublic?bgnde=20211201&endde=20211231&pageNo=3&numOfRows=1000&serviceKey=IhwtVFipeu6nZyGrdxBURBuhH1LUYVdDuftZhldVrd6zyQhAVmaeyEpgqtEPlA865XSikOQ8RTlNrsMPGd2ABg%3D%3D&_type=json`)
+    .then(res=>res.json())
+    .then(data3=>{
+      setData(data3.response.body.items.item)    
+    })
+
+    //유기동물4
+    fetch(`http://apis.data.go.kr/1543061/abandonmentPublicSrvc/abandonmentPublic?bgnde=20211201&endde=20211231&pageNo=4&numOfRows=1000&serviceKey=IhwtVFipeu6nZyGrdxBURBuhH1LUYVdDuftZhldVrd6zyQhAVmaeyEpgqtEPlA865XSikOQ8RTlNrsMPGd2ABg%3D%3D&_type=json`)
+    .then(res=>res.json())
+    .then(data4=>{
+      setData(data4.response.body.items.item)    
+    })
   },[])
-  // console.log(city)
-  // console.log(country)
-  // console.log(breed)
-
-  //console.log(data)
-  // const result = [];
-  // if(data !== undefined){
-  //   result.push( data.filter((text)=>text.kindCd =="[개] 믹스견"));
-  // }
-  // console.log(result)
-
+  //품종만 뽑아내기
   let name = [];
   const newArr = useRef([]);
   if(data !== undefined){
@@ -67,6 +79,7 @@ function App() {
     newArr.current = [...set];
     // console.log(newArr);
   }
+  
 
   if(data !== undefined){
 
@@ -76,9 +89,10 @@ function App() {
           <div className="App">
             <div className='back'>
               <Routes>
-                <Route path="/" element={<Main />}></Route>
+                <Route path="/" element={<Main />}></Route>                
                 <Route path='/SidoShelter' element={<Sido />}></Route>
                 <Route path='/Breed' element={<Breed />}></Route>
+                <Route path='/Breed/:id' element={<Kind />}></Route>
               </Routes>
             </div>
           </div>

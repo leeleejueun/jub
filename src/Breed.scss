@@ -37,23 +37,75 @@ main{
     height: 80%;
     margin: 8% auto 0;
     border-radius: 25px;
-    background-color: #D4B896;
-    display: flex;
-    flex-wrap: wrap;
-    figure{
-        width: 30%;
-        position: relative;
-        text-align: center;
-        img{
-            width: 50%;
+    background-color : #D4B896;
+    position: relative;
+    .breed{
+        width: 85%;
+        margin: 0 auto;
+        padding: 25px;
+        display: flex;
+        flex-wrap: wrap;
+        figure{
+            width: 33.3%;
+            position: relative;
+            text-align: center;
+            a{
+                display: block;
+                position: relative;
+                img{
+                    width: 45%;
+                }
+                figcaption{
+                    position: absolute;
+                    top: 50%;
+                    left: 45%;
+                    transform: translate(-50%, -50%);
+                    color: #EAAD5A;
+                    font-size: 1.2rem;
+                    font-weight: 700;
+                    width: 125px;
+                }
+            }
         }
-        figcaption{
-            position: absolute;
-            top: 50%;
-            left: 45%;
-            transform: translate(-50%, -50%);
-            color: #1A1C2D;
-            font-size: 0.9rem;
+    }
+    .btn{
+        position: absolute;
+        bottom: 4%;
+        left: 50%;
+        transform: translateX(-67%);
+        button{
+            &:first-child{
+                border-radius: 25px;
+                background-color: #fff;
+                width: 50px;
+            }
+            &:last-child{
+                border-radius: 25px;
+                background-color: #fff;
+                width: 50px;
+            }
+            border: none;
+            width: 20px;
+            height: 20px;
+            margin: 0 2px;
+            border-radius: 50%;
+            background-color: #fff;
+            &:hover{
+                background-color: #EAAD5A;
+                cursor: pointer;
+                transform: translateY(-2px);
+            }
+            &[disabled] {
+            background: rgb(197, 197, 197);
+            cursor: revert;
+            transform: revert;
+            }
+            &[aria-current] {
+            background: #EAAD5A;
+            font-weight: bold;
+            cursor: revert;
+            transform: revert;
+            }
         }
     }
 }

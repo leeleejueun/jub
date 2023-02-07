@@ -4,13 +4,14 @@ import { Link } from 'react-router-dom'
 const Main = () => {
   return (
   <>
+  
     <div className='line'>
       <img src='./img/line.png'/>
     </div>
     <div className='header'>
-      <div className='logo'>
+      <Link to="/" className='logo'>
         <img src='./img/logo.png'/>
-      </div>
+      </Link>
       <div className='menu'>
         <ul>
           <li><Link to="/SidoShelter">sido shelter</Link></li>
