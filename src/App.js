@@ -8,38 +8,10 @@ import Main from './Main';
 import Kind from './Kind';
 
 function App() {
-  const [city,setCity] = useState();
-  const [country,setCountry] = useState();
-  const [shelter,setShelter] = useState();
-  const [breed,setBreed] = useState();
   const [data,setData] = useState();
+  const [pro,setPro]=useState();
 
   useEffect(()=>{
-    // //시도
-    // fetch(`http://apis.data.go.kr/1543061/abandonmentPublicSrvc/sido?numOfRows=3&pageNo=1&serviceKey=IhwtVFipeu6nZyGrdxBURBuhH1LUYVdDuftZhldVrd6zyQhAVmaeyEpgqtEPlA865XSikOQ8RTlNrsMPGd2ABg%3D%3D&_type=json`)
-    // .then(res=>res.json())
-    // .then(city=>{
-    //   setCity(city.response.body.items)
-    // })
-    // //시군구
-    // fetch(`http://apis.data.go.kr/1543061/abandonmentPublicSrvc/sigungu?upr_cd=6110000&serviceKey=IhwtVFipeu6nZyGrdxBURBuhH1LUYVdDuftZhldVrd6zyQhAVmaeyEpgqtEPlA865XSikOQ8RTlNrsMPGd2ABg%3D%3D&_type=json`)
-    // .then(res=>res.json())
-    // .then(country=>{
-    //   setCountry(country.response.body.items)    
-    // })
-    // //보호소
-    // fetch(`http://apis.data.go.kr/1543061/abandonmentPublicSrvc/shelter?upr_cd=6110000&org_cd=3220000&serviceKey=IhwtVFipeu6nZyGrdxBURBuhH1LUYVdDuftZhldVrd6zyQhAVmaeyEpgqtEPlA865XSikOQ8RTlNrsMPGd2ABg%3D%3D&_type=json`)
-    // .then(res=>res.json())
-    // .then(shelter=>{
-    //   setShelter(shelter.response.body.items)    
-    // })
-    // //품종
-    // fetch(`http://apis.data.go.kr/1543061/abandonmentPublicSrvc/kind?up_kind_cd=417000&serviceKey=IhwtVFipeu6nZyGrdxBURBuhH1LUYVdDuftZhldVrd6zyQhAVmaeyEpgqtEPlA865XSikOQ8RTlNrsMPGd2ABg%3D%3D&_type=json`)
-    // .then(res=>res.json())
-    // .then(breed=>{
-    //   setBreed(breed.response.body.items)    
-    // })
-
     //유기동물1
     fetch(`http://apis.data.go.kr/1543061/abandonmentPublicSrvc/abandonmentPublic?bgnde=20211201&endde=20211231&pageNo=1&numOfRows=1000&serviceKey=IhwtVFipeu6nZyGrdxBURBuhH1LUYVdDuftZhldVrd6zyQhAVmaeyEpgqtEPlA865XSikOQ8RTlNrsMPGd2ABg%3D%3D&_type=json`)
     .then(res=>res.json())
@@ -67,7 +39,29 @@ function App() {
     .then(data4=>{
       setData(data4.response.body.items.item)    
     })
+
+    //유기동물5
+    fetch(`http://apis.data.go.kr/1543061/abandonmentPublicSrvc/abandonmentPublic?bgnde=20211201&endde=20211231&pageNo=5&numOfRows=1000&serviceKey=IhwtVFipeu6nZyGrdxBURBuhH1LUYVdDuftZhldVrd6zyQhAVmaeyEpgqtEPlA865XSikOQ8RTlNrsMPGd2ABg%3D%3D&_type=json`)
+    .then(res=>res.json())
+    .then(data5=>{
+      setData(data5.response.body.items.item)    
+    })
+
+    //유기동물6
+    fetch(`http://apis.data.go.kr/1543061/abandonmentPublicSrvc/abandonmentPublic?bgnde=20211201&endde=20211231&pageNo=6&numOfRows=1000&serviceKey=IhwtVFipeu6nZyGrdxBURBuhH1LUYVdDuftZhldVrd6zyQhAVmaeyEpgqtEPlA865XSikOQ8RTlNrsMPGd2ABg%3D%3D&_type=json`)
+    .then(res=>res.json())
+    .then(data6=>{
+      setData(data6.response.body.items.item)    
+    })
+    // //보호종료 아가들 제외하기
+    // setPro(data.filter(obj => !obj.processState.match('종료')))
+
   },[])
+  //console.log(pro)
+
+
+
+
   //품종만 뽑아내기
   let name = [];
   const newArr = useRef([]);
