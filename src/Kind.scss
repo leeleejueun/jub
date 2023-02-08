@@ -36,36 +36,40 @@ main{
     margin: 8% auto 0;
     border-radius: 25px;
     background-color: #D4B896;
-    display: flex;
-    .dogs{
-        padding: 3%;
-        width: 60%;
+    position: relative;
+    .dogBtn{
+        width: 100%;
+        padding: 20px;
+        position: absolute;
+        top: 50%;
         display: flex;
-        flex-wrap: wrap;
-        figure{
-            width: 50%;
-            div{
-                width: 150px;
-                height: 150px;
+        justify-content: space-between;
+        box-sizing: border-box;
+        button{
+            background-color: #fff;
+            border: none;
+            border-radius: 25px;
+            width: 50px;
+            height: 50px;
+        }
+    }
+    .dogInner{
+        overflow: hidden;
+        display: flex;
+        .dogs{
+            flex-shrink: 0;
+            width: 100%;
+            display: flex;
+            .dogImg{
                 overflow: hidden;
+                width: 40%;
                 img{
                     width: 100%;
                 }
             }
-            figcaption{
-
+            .dogDetail{
+                width: 50%;
             }
-        }
-    }
-    .dog{
-        background-color: #EAAD5A;
-        border-radius: 25px;
-        width: 40%;
-        .dogImg{
-
-        }
-        .dogDetail{
-
         }
     }
 }

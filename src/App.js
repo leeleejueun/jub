@@ -9,56 +9,25 @@ import Kind from './Kind';
 
 function App() {
   const [data,setData] = useState();
-  const [pro,setPro]=useState();
+  const [pro,setPro]=useState([]);
 
   useEffect(()=>{
     //유기동물1
-    fetch(`http://apis.data.go.kr/1543061/abandonmentPublicSrvc/abandonmentPublic?bgnde=20211201&endde=20211231&pageNo=1&numOfRows=1000&serviceKey=IhwtVFipeu6nZyGrdxBURBuhH1LUYVdDuftZhldVrd6zyQhAVmaeyEpgqtEPlA865XSikOQ8RTlNrsMPGd2ABg%3D%3D&_type=json`)
-    .then(res=>res.json())
-    .then(data=>{
-      setData(data.response.body.items.item)    
-    })
-
-    //유기동물2
-    fetch(`http://apis.data.go.kr/1543061/abandonmentPublicSrvc/abandonmentPublic?bgnde=20211201&endde=20211231&pageNo=2&numOfRows=1000&serviceKey=IhwtVFipeu6nZyGrdxBURBuhH1LUYVdDuftZhldVrd6zyQhAVmaeyEpgqtEPlA865XSikOQ8RTlNrsMPGd2ABg%3D%3D&_type=json`)
-    .then(res=>res.json())
-    .then(data2=>{
-      setData(data2.response.body.items.item)    
-    })
-
-    //유기동물3
-    fetch(`http://apis.data.go.kr/1543061/abandonmentPublicSrvc/abandonmentPublic?bgnde=20211201&endde=20211231&pageNo=3&numOfRows=1000&serviceKey=IhwtVFipeu6nZyGrdxBURBuhH1LUYVdDuftZhldVrd6zyQhAVmaeyEpgqtEPlA865XSikOQ8RTlNrsMPGd2ABg%3D%3D&_type=json`)
-    .then(res=>res.json())
-    .then(data3=>{
-      setData(data3.response.body.items.item)    
-    })
-
-    //유기동물4
-    fetch(`http://apis.data.go.kr/1543061/abandonmentPublicSrvc/abandonmentPublic?bgnde=20211201&endde=20211231&pageNo=4&numOfRows=1000&serviceKey=IhwtVFipeu6nZyGrdxBURBuhH1LUYVdDuftZhldVrd6zyQhAVmaeyEpgqtEPlA865XSikOQ8RTlNrsMPGd2ABg%3D%3D&_type=json`)
-    .then(res=>res.json())
-    .then(data4=>{
-      setData(data4.response.body.items.item)    
-    })
-
-    //유기동물5
-    fetch(`http://apis.data.go.kr/1543061/abandonmentPublicSrvc/abandonmentPublic?bgnde=20211201&endde=20211231&pageNo=5&numOfRows=1000&serviceKey=IhwtVFipeu6nZyGrdxBURBuhH1LUYVdDuftZhldVrd6zyQhAVmaeyEpgqtEPlA865XSikOQ8RTlNrsMPGd2ABg%3D%3D&_type=json`)
-    .then(res=>res.json())
-    .then(data5=>{
-      setData(data5.response.body.items.item)    
-    })
-
-    //유기동물6
-    fetch(`http://apis.data.go.kr/1543061/abandonmentPublicSrvc/abandonmentPublic?bgnde=20211201&endde=20211231&pageNo=6&numOfRows=1000&serviceKey=IhwtVFipeu6nZyGrdxBURBuhH1LUYVdDuftZhldVrd6zyQhAVmaeyEpgqtEPlA865XSikOQ8RTlNrsMPGd2ABg%3D%3D&_type=json`)
-    .then(res=>res.json())
-    .then(data6=>{
-      setData(data6.response.body.items.item)    
-    })
-    // //보호종료 아가들 제외하기
-    // setPro(data.filter(obj => !obj.processState.match('종료')))
-
+    let dataArry=[];
+    for(let i=1;i<8;i++){
+      fetch(`http://apis.data.go.kr/1543061/abandonmentPublicSrvc/abandonmentPublic?bgnde=20211201&endde=20211231&pageNo=${i}&numOfRows=1000&serviceKey=IhwtVFipeu6nZyGrdxBURBuhH1LUYVdDuftZhldVrd6zyQhAVmaeyEpgqtEPlA865XSikOQ8RTlNrsMPGd2ABg%3D%3D&_type=json`)
+      .then(res=>res.json())
+      .then(data=>{
+        let state = [...data.response.body.items.item.filter(obj => !obj.processState.match('종료'))]
+        // let state = [...data.response.body.items.item]
+        dataArry = dataArry.concat(state);
+        setData(dataArry)    
+      })
+    }
   },[])
-  //console.log(pro)
 
+  
+// console.log(pro + 'sdfsdfsdfsdf')
 
 
 
@@ -76,6 +45,8 @@ function App() {
   
 
   if(data !== undefined){
+
+   
 
     return (
       <MyContext.Provider value={{data:data,newArr:newArr.current,setData:setData}}>
