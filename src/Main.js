@@ -16,6 +16,7 @@ const Main = () => {
         <ul>
           <li><Link to="/SidoShelter">sido shelter</Link></li>
           <li><Link to="/Breed">breed</Link></li>
+          <li><Link to="/Breed">breed</Link></li>
         </ul>
       </div>
       <div className='side'>

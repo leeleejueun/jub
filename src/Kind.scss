@@ -31,45 +31,31 @@ header{
     }
 }
 main{
-    width: 80%;
-    height: 80%;
-    margin: 8% auto 0;
-    border-radius: 25px;
-    background-color: #D4B896;
-    position: relative;
-    .dogBtn{
-        width: 100%;
-        padding: 20px;
-        position: absolute;
-        top: 50%;
-        display: flex;
-        justify-content: space-between;
-        box-sizing: border-box;
-        button{
-            background-color: #fff;
-            border: none;
-            border-radius: 25px;
-            width: 50px;
-            height: 50px;
-        }
-    }
     .dogInner{
-        overflow: hidden;
-        display: flex;
+        padding-top: 10vh;
         .dogs{
-            flex-shrink: 0;
-            width: 100%;
-            display: flex;
+            display: flex !important;
             .dogImg{
-                overflow: hidden;
                 width: 40%;
+                height: 50vh;
+                overflow: hidden;
                 img{
                     width: 100%;
                 }
             }
             .dogDetail{
-                width: 50%;
+                width: 60%;
             }
+        }
+    }
+}
+.slick-dots li{
+    width: 20px;
+    height: 20px;
+    overflow: hidden;
+    a{
+        img{
+            width: 100%;
         }
     }
 }
