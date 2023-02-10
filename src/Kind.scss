@@ -31,31 +31,32 @@ header{
     }
 }
 main{
-    .dogInner{
-        padding-top: 10vh;
+    div{
+        input{}
         .dogs{
             display: flex !important;
+            height: 70vh;
             .dogImg{
+                margin: 3%;
                 width: 40%;
-                height: 50vh;
                 overflow: hidden;
                 img{
                     width: 100%;
                 }
             }
             .dogDetail{
-                width: 60%;
+                list-style: none;
+                display: flex;
+                flex-direction: column;
+                flex-wrap: wrap;
+                height: 45vh;
+                li{
+                    p{}
+                }
             }
-        }
-    }
-}
-.slick-dots li{
-    width: 20px;
-    height: 20px;
-    overflow: hidden;
-    a{
-        img{
-            width: 100%;
+            .important{
+
+            }
         }
     }
 }

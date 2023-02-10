@@ -1,6 +1,6 @@
 import './App.scss';
 import {useState,useEffect, useRef} from  'react';
-import {BrowserRouter, Routes, Route, Link} from 'react-router-dom';
+import {BrowserRouter, Routes, Route, Link, useParams} from 'react-router-dom';
 import { MyContext } from './Context';
 import Breed from './Breed';
 import Sido from './Sido';
@@ -42,14 +42,14 @@ function App() {
     newArr.current = [...set];
     // console.log(newArr);
   }
-  
+
 
   if(data !== undefined){
 
    
 
     return (
-      <MyContext.Provider value={{data:data,newArr:newArr.current,setData:setData}}>
+      <MyContext.Provider value={{data,newArr:newArr.current,setData}}>
         <BrowserRouter>
           <div className="App">
             <div className='back'>
